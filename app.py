@@ -1,6 +1,3 @@
-from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.models import load_model
 import json
 import re
 from bs4 import BeautifulSoup
@@ -60,9 +57,6 @@ if 'blog.naver.com' in user_input:
 else:
     str_content = user_input
 
-
-
-loaded_model = load_model('best_model.h5')
 st.progress(100)
 
 if str_content != '':
