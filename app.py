@@ -57,7 +57,6 @@ if 'blog.naver.com' in user_input:
 else:
     str_content = user_input
 
-st.progress(100)
 
 if str_content != '':
     # 블로그 에디터 창에서 안보이지만 따라오는 단어들
@@ -97,7 +96,8 @@ if st.button("분석 시작"):
     with st.spinner('Wait for it...'):
         time.sleep(1)
     sentiment_result = get_sentiment(str_result)
-
+    st.progress(100)
+    
     st.write(str_result)
     
     if sentiment_result["result"] == '긍정':
