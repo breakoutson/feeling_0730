@@ -89,20 +89,24 @@ if str_content != '':
     str_result = re.sub('\n+| +', ' ', str_conent_without_line_emoji)
 
 
-st.write(str_result)
 
 
 
-sentiment_result = get_sentiment(str_result)
+# 감성분석 전체분석
+if st.button("분석 시작"):
+    with st.spinner('Wait for it...'):
+        time.sleep(1)
+    sentiment_result = get_sentiment(str_result)
 
-
-if sentiment_result["result"] == '긍정':
-    st.subheader(f'{sentiment_result["score"]:.2f}%의 확률로 {sentiment_result["result"]}적인 글입니다')
-    st.balloons()
-elif sentiment_result["result"] == '부정':
-    st.subheader(f'{sentiment_result["score"]:.2f}%의 확률로 {sentiment_result["result"]}적인 글입니다')
-    st.snow()
-
-else :
-    st.subheader(f'이 글은 {sentiment_result["result"]}적인 글입니다')
-    pass
+    st.write(str_result)
+    
+    if sentiment_result["result"] == '긍정':
+        st.subheader(f'{sentiment_result["score"]:.2f}%의 확률로 {sentiment_result["result"]}적인 글입니다')
+        st.balloons()
+    elif sentiment_result["result"] == '부정':
+        st.subheader(f'{sentiment_result["score"]:.2f}%의 확률로 {sentiment_result["result"]}적인 글입니다')
+        st.snow()
+    
+    else :
+        st.subheader(f'이 글은 {sentiment_result["result"]}적인 글입니다')
+        pass
