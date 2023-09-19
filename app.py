@@ -38,7 +38,7 @@ def get_sentiment(text):
 
 ########################################################
 
-st.title('BREAKOUT SON 감성분석기')
+st.title('감성분석기')
 user_input = st.text_input('본문 또는 URL 입력')
 
 if 'blog.naver.com' in user_input:
